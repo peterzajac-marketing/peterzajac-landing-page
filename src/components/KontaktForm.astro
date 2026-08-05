@@ -1,0 +1,120 @@
+---
+import { formular } from '../data/content';
+import { site } from '../data/site';
+import { withBase } from '../utils/withBase';
+
+const inputClass =
+  'w-full rounded-md border border-neutral-200 bg-white px-4 py-3 text-sm shadow-sm placeholder:text-neutral-400 focus:border-orange focus:outline-none';
+const labelClass = 'mb-1 block font-heading font-bold';
+---
+
+<section id="konzultacia" class="scroll-mt-8 bg-white">
+  <div class="mx-auto max-w-[75rem] px-4 py-16 md:py-[4.375rem]">
+    <h2 class="text-center font-heading text-[2rem] leading-tight font-bold text-ink md:text-[3.75rem] md:leading-none">
+      {formular.nadpis}
+      <br />
+      <span class="font-normal">{formular.podnadpis}</span>
+    </h2>
+
+    <div class="mx-auto mt-10 max-w-[54.125rem]">
+      <div class="mx-auto w-fit md:mr-6 md:ml-auto">
+        <p class="max-w-[16.875rem] text-right font-heading text-[1.375rem] leading-[1.4] font-bold text-ink italic md:text-[1.5625rem]">
+          {formular.poznamka}
+        </p>
+        <img
+          src={withBase('/images/icon_35994f35.svg')}
+          alt=""
+          width="59"
+          height="59"
+          class="relative z-10 -mb-7 block"
+          loading="lazy"
+        />
+      </div>
+      <div class="rounded-[74px] bg-svetla px-5 py-10 md:px-10 md:py-14">
+        <form
+          name="konzultacia"
+          method="POST"
+          action={withBase('/dakujeme')}
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="mx-auto grid max-w-[48.8125rem] gap-5 md:grid-cols-2"
+        >
+          <input type="hidden" name="form-name" value="konzultacia" />
+          <p class="hidden">
+            <label>Nevypĺňajte: <input name="bot-field" /></label>
+          </p>
+
+          <div>
+            <label for="meno" class={labelClass}>
+              {formular.polia.meno} <span class="text-red-500">*</span>
+            </label>
+            <input id="meno" name="meno" type="text" required placeholder={formular.polia.meno} class={inputClass} />
+          </div>
+
+          <div>
+            <label for="email" class={labelClass}>
+              {formular.polia.email} <span class="text-red-500">*</span>
+            </label>
+            <input id="email" name="email" type="email" required placeholder={formular.polia.email} class={inputClass} />
+          </div>
+
+          <div>
+            <label for="telefon" class={labelClass}>
+              {formular.polia.telefon} <span class="text-red-500">*</span>
+            </label>
+            <input
+              id="telefon"
+              name="telefon"
+              type="tel"
+              required
+              placeholder={formular.polia.telefon}
+              class={inputClass}
+            />
+          </div>
+
+          <div>
+            <label for="zdroj" class={labelClass}>{formular.polia.zdroj}</label>
+            <input id="zdroj" name="zdroj" type="text" class={inputClass} />
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="dlhodoba-sprava" class={labelClass}>{formular.polia.dlhodobaSprava}</label>
+            <input id="dlhodoba-sprava" name="dlhodoba-sprava" type="text" class={inputClass} />
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="financny-ciel" class={labelClass}>{formular.polia.financnyCiel}</label>
+            <input id="financny-ciel" name="financny-ciel" type="text" class={inputClass} />
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="sprava" class={labelClass}>{formular.polia.sprava}</label>
+            <textarea
+              id="sprava"
+              name="sprava"
+              rows="4"
+              placeholder={formular.spravaPlaceholder}
+              class={inputClass}></textarea>
+          </div>
+
+          <label class="flex items-start gap-3 text-sm text-neutral-700 md:col-span-2">
+            <input type="checkbox" name="gdpr-suhlas" value="áno" required class="mt-0.5 h-4 w-4 accent-orange" />
+            <span>
+              <a href={site.gdprUrl} target="_blank" rel="noopener" class="underline hover:text-orange">
+                {formular.gdprText}
+              </a>
+              <span class="text-red-500">*</span>
+            </span>
+          </label>
+
+          <button
+            type="submit"
+            class="relative h-[55px] w-full cursor-pointer overflow-hidden rounded bg-orange font-form text-xl font-bold text-white before:absolute before:inset-0 before:bg-white/0 before:transition before:duration-300 hover:before:bg-white/20 md:col-span-2"
+          >
+            {formular.odoslat}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

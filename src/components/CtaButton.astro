@@ -1,0 +1,28 @@
+---
+/**
+ * Pilulkové CTA tlačidlo podľa dizajnu — na hover sa presvetlí bielym
+ * overlay (rovnaký efekt ako v pôvodnom dizajne).
+ */
+interface Props {
+  href: string;
+  /** Farebný variant: tmavomodrý (hero) alebo oranžový (sekcia postupu) */
+  variant?: 'navy' | 'orange';
+}
+
+const { href, variant = 'navy' } = Astro.props;
+
+const varianty = {
+  navy: 'h-[4.25rem] w-[16.5625rem] bg-navy text-xl max-md:h-[2.375rem] max-md:w-[15.9375rem] max-md:text-base',
+  orange: 'h-[3.4375rem] bg-orange px-9 text-[1.0625rem]',
+};
+---
+
+<a
+  href={href}
+  class:list={[
+    'relative inline-flex items-center justify-center overflow-hidden rounded-full text-center font-bold text-white before:absolute before:inset-0 before:rounded-full before:bg-white/0 before:transition before:duration-300 hover:before:bg-white/20',
+    varianty[variant],
+  ]}
+>
+  <slot />
+</a>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://go.peterzajac.sk/financne-a-investicne-poradenstvo/sitemap-index.xml

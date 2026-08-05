@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { dakujeme } from '../data/content';
+import { site } from '../data/site';
+import { withBase } from '../utils/withBase';
+---
+
+<Layout
+  title={`Ďakujeme za váš dopyt | ${site.nazovFirmy}`}
+  description="Vaša žiadosť bola úspešne odoslaná. Čoskoro sa vám ozveme a dohodneme si termín konzultácie."
+>
+  <meta name="robots" content="noindex" slot="head" />
+  <Header />
+  <section class="bg-white">
+    <div class="mx-auto flex max-w-2xl flex-col items-center px-4 py-28 text-center md:py-36">
+      <span class="flex h-20 w-20 items-center justify-center rounded-full bg-orange/15 text-orange">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="h-10 w-10">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+        </svg>
+      </span>
+      <h1 class="mt-8 font-heading text-[46px] font-bold leading-tight">{dakujeme.nadpis}</h1>
+      <p class="mt-6 max-w-lg text-[18px] text-neutral-600">{dakujeme.text}</p>
+      <a
+        href={withBase('/')}
+        class="mt-10 inline-block rounded-full bg-navy px-8 py-4 font-heading text-[20px] font-bold text-white transition hover:opacity-90"
+      >
+        {dakujeme.tlacidlo}
+      </a>
+    </div>
+  </section>
+  <Footer />
+</Layout>

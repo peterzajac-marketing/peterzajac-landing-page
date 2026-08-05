@@ -1,0 +1,31 @@
+---
+import { preKoho } from '../data/content';
+---
+
+<section class="bg-white">
+  <div class="mx-auto max-w-[75rem] px-4 py-16">
+    <h2 class="text-center font-heading text-[2rem] leading-[1.3] font-bold text-ink md:text-[2.5rem]">
+      {preKoho.nadpis}
+    </h2>
+    <div class="mt-12 grid gap-12 md:mt-16 md:grid-cols-3 md:gap-8">
+      {
+        preKoho.karty.map((karta) => (
+          <div class="flex flex-col items-center text-center">
+            <div class="flex h-[7.0625rem] items-center">
+              <img
+                src={karta.obrazok.src}
+                alt={karta.obrazok.alt}
+                width={karta.obrazok.width}
+                height={karta.obrazok.height}
+                class="max-h-full w-auto"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="mt-7 font-heading text-xl font-bold text-purple md:text-[1.5625rem]">{karta.titulok}</h3>
+            <p class="mt-4 max-w-[17rem] text-[0.9375rem] leading-[1.3] md:text-[1.0625rem]">{karta.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

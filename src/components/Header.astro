@@ -1,0 +1,31 @@
+---
+import { site } from '../data/site';
+import { withBase } from '../utils/withBase';
+---
+
+<header class="bg-svetla">
+  <div
+    class="mx-auto flex max-w-[75rem] flex-col items-center justify-center gap-3 px-4 py-5 md:h-[5.75rem] md:flex-row md:justify-between md:gap-0 md:py-0"
+  >
+    <a href={withBase('/')} class="md:pl-11">
+      <img
+        src={site.logo.src}
+        alt={site.logo.alt}
+        width={site.logo.width}
+        height={site.logo.height}
+        class="h-[2.8125rem] w-auto md:h-[5.0625rem]"
+        fetchpriority="high"
+      />
+    </a>
+    <div class="flex items-center gap-6 font-form text-sm font-light text-ink md:gap-8">
+      {
+        site.kontakt.telefony.map((cislo) => (
+          <a href={`tel:${cislo.replaceAll(' ', '')}`} class="hover:underline">
+            {cislo}
+          </a>
+        ))
+      }
+      <a href={`mailto:${site.kontakt.email}`} class="hover:underline">{site.kontakt.email}</a>
+    </div>
+  </div>
+</header>

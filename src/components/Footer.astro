@@ -1,0 +1,36 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="bg-purple text-svetla">
+  <div
+    class="mx-auto flex max-w-[75rem] flex-col items-center gap-8 px-4 py-12 text-center text-base font-bold leading-[1.4] md:min-h-[13.9375rem] md:flex-row md:items-center md:justify-between md:gap-4 md:px-[5.75rem] md:py-10 md:text-left md:text-sm"
+  >
+    <img
+      src={site.logoBiele.src}
+      alt={site.logoBiele.alt}
+      width={site.logoBiele.width}
+      height={site.logoBiele.height}
+      loading="lazy"
+    />
+    <div>
+      <p>Ing. Peter Zajac</p>
+      <p class="mt-5">{site.opravnenie}</p>
+    </div>
+    <div>
+      {
+        site.kontakt.telefony.map((cislo) => (
+          <a href={`tel:${cislo.replaceAll(' ', '')}`} class="block hover:underline">
+            {cislo}
+          </a>
+        ))
+      }
+      <a href={`mailto:${site.kontakt.email}`} class="block hover:underline">{site.kontakt.email}</a>
+    </div>
+    <p>
+      Pobočka Bratislava:<br />
+      Mlynské Nivy 48<br />
+      821 09 Bratislava
+    </p>
+  </div>
+</footer>

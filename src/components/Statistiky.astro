@@ -1,0 +1,21 @@
+---
+import { statistiky } from '../data/content';
+---
+
+<section class="bg-sky">
+  <div
+    class="mx-auto flex max-w-[75rem] flex-col items-center gap-10 px-4 py-14 md:flex-row md:justify-around md:gap-4"
+  >
+    {
+      statistiky.map((stat) => (
+        <div class="flex flex-col items-center text-center">
+          <img src={stat.ikona} alt="" width="59" height="59" loading="lazy" />
+          <p class="mt-4 font-heading text-[2.5rem] leading-none font-bold text-purple md:text-[3.125rem]">
+            {stat.hodnota}
+          </p>
+          <p class="mt-2 text-base">{stat.popis}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,20 @@
+---
+import { oblasti } from '../data/content';
+---
+
+<section class="bg-white">
+  <div class="mx-auto max-w-[75rem] px-4 py-16">
+    <h2 class="text-center font-heading text-[2rem] leading-[1.3] font-bold text-ink md:text-[2.5rem]">
+      {oblasti.nadpis}
+    </h2>
+    <div class="mx-auto mt-12 grid max-w-[56rem] grid-cols-2 gap-4 md:mt-16 md:grid-cols-4 md:gap-x-6 md:gap-y-[4.375rem]">
+      {
+        oblasti.polozky.map((polozka) => (
+          <div class="flex min-h-[8.3125rem] items-center justify-center rounded-[15px] bg-navy px-4 py-5 text-center">
+            <p class="text-sm leading-[1.4] text-white md:text-base">{polozka}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
