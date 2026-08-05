@@ -18,6 +18,12 @@ export const site = {
    */
   gtmId: '',
 
+  /**
+   * Google Analytics 4 measurement ID (napr. 'G-XXXXXXXXXX').
+   * Ak zostane prázdny reťazec, gtag.js sa do stránky vôbec nevloží.
+   */
+  gaId: 'G-HBDRTGGTGF',
+
   logo: {
     src: withBase('/images/logopeterzajac.svg'),
     alt: 'Peter Zajac – logo',

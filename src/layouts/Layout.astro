@@ -65,7 +65,22 @@ const ogImage = new URL(site.ogImage.src, Astro.site);
         </script>
       )
     }
-    <!-- TRACKING: ďalšie meracie kódy (Meta Pixel / GA4) patria sem -->
+    {
+      site.gaId && (
+        <>
+          <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`} />
+          <script is:inline define:vars={{ gaId: site.gaId }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', gaId);
+          </script>
+        </>
+      )
+    }
+    <!-- TRACKING: ďalšie meracie kódy (Meta Pixel) patria sem -->
   </head>
   <body class="font-body text-ink antialiased">
     {
