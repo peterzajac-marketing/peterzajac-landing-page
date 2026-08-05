@@ -5,3 +5,4 @@ dist/
 .astro/
 .superpowers/
 .claude/settings.local.json
+publish/
